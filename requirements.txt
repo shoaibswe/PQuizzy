@@ -1,0 +1,9 @@
+# Python Quiz Application Requirements
+# This project currently uses only Python standard library
+# No external dependencies required
+
+# Future potential dependencies (uncomment if needed):
+# colorama>=0.4.6  # For colored terminal output
+# rich>=13.0.0     # For rich text formatting
+# click>=8.0.0     # For command-line interface
+# pytest>=7.0.0    # For testing (dev dependency)
