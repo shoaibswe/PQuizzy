@@ -1,9 +1,15 @@
-# Python Quiz Application Requirements
-# This project currently uses only Python standard library
-# No external dependencies required
+# PQuizzy - Production Dependencies
+# 
+# This professional quiz application uses only Python standard library.
+# No external dependencies required for core functionality.
+#
+# The application is designed to be lightweight and self-contained,
+# making it easy to run anywhere Python 3.7+ is available.
 
-# Future potential dependencies (uncomment if needed):
-# colorama>=0.4.6  # For colored terminal output
-# rich>=13.0.0     # For rich text formatting
-# click>=8.0.0     # For command-line interface
-# pytest>=7.0.0    # For testing (dev dependency)
+# Optional enhancements (uncomment if needed):
+# colorama>=0.4.6        # For colored terminal output
+# rich>=13.0.0           # For beautiful console formatting
+# click>=8.0.0           # For advanced CLI features
+# typer>=0.7.0           # For modern CLI applications
+
+# Note: All features work perfectly with just Python standard library!

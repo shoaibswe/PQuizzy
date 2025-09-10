@@ -1,24 +1,25 @@
 # PQuizzy
 
-A simple and interactive Python quiz game that tests your knowledge across various topics. Challenge yourself with multiple-choice questions and track your progress!
+A clean, Python quiz application with object-oriented design. Test your knowledge across various topics with an intuitive command-line interface!
 
 ## 📝 Description
 
-PQuizzy is a lightweight, command-line quiz application built with Python. It offers an engaging way to test your knowledge through customizable quizzes with immediate feedback and scoring. Perfect for students, educators, or anyone looking to learn while having fun!
+PQuizzy is a lightweight, well-structured quiz application built with modern Python practices. Features clean object-oriented code, comprehensive error handling, and professional development practices. Perfect for learning Python OOP concepts while having fun with quizzes!
 
 ## ✨ Features
 
-- **Interactive Quiz Interface**: Clean, user-friendly command-line interface
-- **Multiple Categories**: Support for various quiz topics and categories
-- **Instant Feedback**: Get immediate results after each question
-- **Score Tracking**: Keep track of your performance and progress
-- **Customizable Questions**: Easy to add new questions and categories
-- **Randomized Questions**: Questions are shuffled for a fresh experience each time
+- **Clean Object-Oriented Design**: Professional code structure with Question and Quiz classes
+- **Smart Input Validation**: Retries invalid inputs (E, hello, 1) but moves on for wrong answers (A when C is correct)
+- **Instant Feedback**: Immediate results with clear correct answer display
+- **Professional Error Handling**: Graceful handling of interrupts and edge cases
+- **Type Hints & Docstrings**: Modern Python practices with full documentation
+- **Comprehensive Testing**: 16 unit tests covering all functionality
+- **Easy to Extend**: Simple to add new questions or modify behavior
 
 ## 🚀 Installation
 
 ### Prerequisites
-- Python 3.6 or higher
+- Python 3.7 or higher
 
 ### Setup
 1. Clone the repository:
@@ -27,46 +28,150 @@ PQuizzy is a lightweight, command-line quiz application built with Python. It of
    cd PQuizzy
    ```
 
-2. Install dependencies (if any):
+2. Create virtual environment:
    ```bash
-   pip install -r requirements.txt
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies (optional):
+   ```bash
+   pip install -r requirements.txt        # Main dependencies (none currently)
+   pip install -r requirements-dev.txt    # Development dependencies
    ```
 
 ## 💻 Usage
 
-Run the quiz game:
+### Run the Quiz
 ```bash
-python quiz.py
+python main.py
 ```
 
-Follow the on-screen prompts to:
-1. Select a quiz category
-2. Answer multiple-choice questions
-3. View your final score and performance
-
-## 🎯 Example
-
+### Example Session
 ```
-Welcome to PQuizzy!
+🎯 Welcome to PQuizzy!
+Answer each question once and move to the next.
 
-Select a category:
-1. General Knowledge
-2. Science
-3. History
 
-Enter your choice (1-3): 1
+========================================
+Question 1: What is the capital of France?
+Category: Geography
+========================================
+A. London
+B. Berlin
+C. Paris
+D. Madrid
 
-Question 1/10:
-What is the capital of France?
-A) London
-B) Berlin
-C) Paris
-D) Madrid
+Your answer (A/B/C/D): A
+❌ Wrong! Correct answer: C
 
-Your answer: C
-Correct! ✓
+========================================
+Question 2: What is 2 + 2?
+Category: Mathematics
+========================================
+A. 3
+B. 4
+C. 5
+D. 6
 
-Score: 1/1
+Your answer (A/B/C/D): B
+✅ Correct!
+
+========================================
+🏆 QUIZ COMPLETED!
+========================================
+Score: 1/2 (50%)
+📚 Keep practicing!
+========================================
+```
+
+### Run Tests
+```bash
+python tests.py
+```
+
+## 🧪 Testing
+
+The application includes comprehensive unit tests:
+
+- **16 test cases** covering all functionality
+- **100% core feature coverage** 
+- **Professional test structure** with mocking
+- **Easy to run and understand**
+
+```bash
+# Run all tests
+python tests.py
+
+# Expected output:
+🧪 Running PQuizzy Tests
+========================================
+...
+✅ All tests passed!
+📊 16 tests completed
+```
+
+## 🏗️ Architecture
+
+### Code Structure
+```
+PQuizzy/
+├── main.py             # Main application with Question & Quiz classes
+├── tests.py            # Comprehensive unit tests (16 tests)
+├── requirements.txt    # Production dependencies
+├── requirements-dev.txt # Development dependencies
+├── README.md          # Project documentation
+└── venv/              # Virtual environment
+```
+
+### Key Classes
+- **`Question`**: Represents a quiz question with validation
+- **`Quiz`**: Main quiz logic with smart input handling
+- **`QuizBuilder`**: Helper for creating default questions
+
+### Design Principles
+- **Single Responsibility**: Each class has one clear purpose
+- **Error Handling**: Graceful handling of all edge cases
+- **Type Safety**: Full type hints for better code quality
+- **Testing**: Comprehensive test coverage for reliability
+
+## 🎯 Key Behaviors
+
+### Input Validation
+- **Invalid inputs** (`E`, `hello`, `123`) → Retry until valid (A, B, C, D)
+- **Wrong but valid answers** (`A` when correct is `C`) → Show correct answer, move to next question
+- **Correct answers** → Celebrate and continue
+
+### Scoring System
+- **80%+ → "Excellent!"** 🎉
+- **70-79% → "Good job!"** 👍  
+- **50-69% → "Not bad, keep studying!"** 📚
+- **<50% → "Keep practicing!"** 💪
+
+## 🔧 Customization
+
+### Adding New Questions
+```python
+new_question = Question(
+    text="Your question here?",
+    options={
+        "A": "Option 1",
+        "B": "Option 2", 
+        "C": "Option 3",
+        "D": "Option 4"
+    },
+    correct_answer="B",  # Must be A, B, C, or D
+    category="Your Category"
+)
+```
+
+### Creating Custom Quiz
+```python
+from main import Quiz, Question
+
+questions = [new_question, another_question]
+quiz = Quiz(questions)
+quiz.run()
 ```
 
 ## 🤝 Contributing
@@ -75,29 +180,30 @@ Contributions are welcome! Here's how you can help:
 
 1. **Fork** the repository
 2. **Create** a feature branch (`git checkout -b feature/new-feature`)
-3. **Commit** your changes (`git commit -m 'Add some feature'`)
-4. **Push** to the branch (`git push origin feature/new-feature`)
-5. **Open** a Pull Request
+3. **Make** your changes with tests
+4. **Run** tests to ensure everything works (`python tests.py`)
+5. **Commit** your changes (`git commit -m 'Add feature: description'`)
+6. **Push** to the branch (`git push origin feature/new-feature`)
+7. **Open** a Pull Request
 
-### Adding New Questions
-To add new questions, edit the question files in the appropriate category or create new category files following the existing format.
+### Development Guidelines
+- Write tests for new features
+- Follow existing code style
+- Add type hints and docstrings
+- Keep methods small and focused
 
-## 📁 Project Structure
+## 🧰 Development Tools
 
+Install development dependencies:
+```bash
+pip install -r requirements-dev.txt
 ```
-PQuizzy/
-├── quiz.py          # Main quiz application
-├── questions/       # Quiz questions by category
-├── utils/          # Utility functions
-├── README.md       # Project documentation
-└── requirements.txt # Python dependencies
-```
 
-## 🔧 Customization
-
-- **Add Categories**: Create new question files in the `questions/` directory
-- **Modify Scoring**: Adjust scoring logic in the main quiz module
-- **Customize Interface**: Modify the display and interaction functions
+Available tools:
+- **pytest**: Run tests with detailed output
+- **black**: Code formatting
+- **flake8**: Code linting  
+- **mypy**: Type checking
 
 ## 📄 License
 
@@ -105,13 +211,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Shoaib** - [shoaibswe](https://github.com/shoaibswe)
+**Shoaib Rahman** - [shoaibswe](https://github.com/shoaibswe)
 
 ## 🙏 Acknowledgments
 
-- Thanks to all contributors who help improve PQuizzy
-- Inspired by the need for simple, educational quiz applications
+- Built with modern Python best practices
+- Inspired by the need for clean, educational code examples
+- Thanks to the Python community for excellent testing tools
 
 ---
 
-**Enjoy learning with PQuizzy! 🎉**
+**Learn Python OOP concepts while having fun with quizzes! 🎉**

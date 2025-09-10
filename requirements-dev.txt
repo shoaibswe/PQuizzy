@@ -1,5 +1,26 @@
-# Development Dependencies
-pytest>=7.0.0
-black>=22.0.0
-flake8>=5.0.0
-mypy>=0.991
+# PQuizzy - Development Dependencies
+#
+# Tools for maintaining code quality, testing, and development workflow.
+# Install with: pip install -r requirements-dev.txt
+
+# Testing Framework
+pytest>=7.0.0              # Modern testing framework (optional - tests.py uses unittest)
+pytest-cov>=4.0.0          # Coverage reporting
+pytest-mock>=3.10.0        # Advanced mocking capabilities
+
+# Code Quality & Formatting
+black>=22.0.0               # Code formatter
+flake8>=5.0.0               # Linting and style checking
+mypy>=0.991                 # Static type checking
+isort>=5.10.0               # Import sorting
+
+# Development Tools
+pre-commit>=2.20.0          # Git hooks for quality checks
+bandit>=1.7.0               # Security vulnerability scanner
+
+# Documentation (optional)
+# sphinx>=5.0.0             # Documentation generation
+# sphinx-rtd-theme>=1.0.0   # Read the Docs theme
+
+# Note: The main application uses only unittest from standard library
+# These tools are for enhanced development experience
